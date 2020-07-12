@@ -1,7 +1,6 @@
 // DARKER COMPONENTS
 import DarkerAlert from "./components/darker/DarkerAlert.vue"
 
-
 function install(Vue, options) {
   if (install.installed) {
     return
@@ -9,15 +8,15 @@ function install(Vue, options) {
     install.installed = true
   }
 
-  const components = {
-    alert: DarkerAlert
-  }
+  // const components = {
+  //   alert: DarkerAlert
+  // }
 
-  for (let component in components) {
-    if (!options || !options.components || options.components.length === 0 || options.components.includes(component)) {
-      Vue.component("gb-" + component, components[component])
-    }
-  }
+  // for (let component in components) {
+  //   if (!options || !options.components || options.components.length === 0 || options.components.includes(component)) {
+  //     Vue.component("gb-" + component, components[component])
+  //   }
+  // }
 
   if (!Vue.prototype.$gb) {
     Vue.prototype.$gb = {}
