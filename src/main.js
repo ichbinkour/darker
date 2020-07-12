@@ -1,5 +1,6 @@
 // DARKER COMPONENTS
 import DarkerAlert from "./components/darker/DarkerAlert.vue"
+import DarkerNavbar from "./components/darker/DarkerNavbar.vue"
 
 function install(Vue, options) {
   if (install.installed) {
@@ -8,22 +9,22 @@ function install(Vue, options) {
     install.installed = true
   }
 
-  // const components = {
-  //   alert: DarkerAlert
-  // }
-
-  // for (let component in components) {
-  //   if (!options || !options.components || options.components.length === 0 || options.components.includes(component)) {
-  //     Vue.component("gb-" + component, components[component])
-  //   }
-  // }
-
-  if (!Vue.prototype.$gb) {
-    Vue.prototype.$gb = {}
+  var components = {
+    alert: DarkerAlert,
+    navbar: DarkerNavbar
+  }
+  for (let component in components) {
+    if (!options || !options.components || options.components.length === 0 || options.components.includes(component)) {
+      Vue.component("dk-" + component, components[component])
+    }
   }
 
-  Vue.prototype.$gb.vuedarkmode = {}
-  Vue.prototype.$gb.vuedarkmode.theme = (options || {}).theme || "dark"
+  // if (!Vue.prototype.$gb) {
+  //   Vue.prototype.$gb = {}
+  // }
+
+  // Vue.prototype.$gb.vuedarkmode = {}
+  // Vue.prototype.$gb.vuedarkmode.theme = (options || {}).theme || "dark"
 }
 
 const plugin = {
@@ -45,5 +46,6 @@ if (GlobalVue) {
 export default plugin
 
 export {
-  DarkerAlert
+  DarkerAlert,
+  DarkerNavbar
 }
